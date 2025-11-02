@@ -1,0 +1,23 @@
+# Development Workspace Layout
+# Workspace 3 with IDE, terminal, and browser in tabs
+
+workspace 3
+
+# Launch kitty terminal
+exec kitty
+
+sleep 0.5
+
+# Launch VS Code and create tab group
+exec code
+sleep 0.5
+hy3:makegroup tab
+
+# Launch browser in same tab group
+exec firefox
+sleep 0.5
+hy3:makegroup tab
+
+# Focus back to terminal (first window)
+hyprctl changefocus raise
+hyprctl changefocus raise

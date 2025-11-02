@@ -1,0 +1,56 @@
+# Layout saved on Sat Nov  1 07:16:50 PM CDT 2025
+# Current workspace: 6
+
+# Window: kitty - btop
+workspace 4
+exec kitty
+sleep 0.5
+
+# Window: kitty - ✳ Rofi Custom Script Menu
+workspace 1
+exec kitty
+sleep 0.5
+
+# Window: obsidian - ded e - temporarylol - Obsidian v1.9.14
+workspace 5
+exec obsidian
+sleep 0.5
+
+# Window: kitty - ~
+workspace 1
+exec kitty
+sleep 0.5
+
+# Window: kitty - nvim App.tsx
+workspace 3
+exec kitty
+sleep 0.5
+
+# Window: kitty - ~
+workspace 3
+exec kitty
+sleep 0.5
+
+# Window: firefox - (8) WhatsApp — Mozilla Firefox
+workspace 2
+exec firefox
+sleep 0.5
+
+# Window: chromium - where can i find linux rice examples besides unixporn which is very... - Chromium
+workspace 2
+exec chromium
+sleep 0.5
+
+# Window: firefox - ricing best terminal fonts - Google Search — Mozilla Firefox
+workspace 1
+exec firefox
+sleep 0.5
+
+
+# Workspace info:
+# Workspace 1: 3 windows
+# Workspace 2: 2 windows
+# Workspace 3: 2 windows
+# Workspace 4: 1 windows
+# Workspace 5: 1 windows
+# Workspace 6: 0 windows

@@ -1,0 +1,33 @@
+[config]
+# Enable caching for faster theme generation
+caching = true
+
+# Wallpaper settings
+[config.wallpaper]
+# Automatically set wallpaper when running matugen
+set = true
+# Use swww to set wallpaper
+command = "swww"
+# Arguments for swww
+arguments = ["img", "--transition-type", "center"]
+
+# Waybar CSS template
+[templates.waybar]
+input_path = "~/.config/matugen/templates/waybar.css"
+output_path = "~/.config/waybar/style.css"
+# Reload waybar after theme change
+post_hook = "killall -SIGUSR2 waybar || true"
+
+# Hyprland colors template
+[templates.hyprland]
+input_path = "~/.config/matugen/templates/hyprland-colors.conf"
+output_path = "~/.config/hypr/colors.conf"
+# Reload Hyprland config after theme change
+post_hook = "hyprctl reload"
+
+# Kitty terminal colors template
+[templates.kitty]
+input_path = "~/.config/matugen/templates/kitty.conf"
+output_path = "~/.config/kitty/colors.conf"
+# Reload kitty after theme change
+post_hook = "killall -SIGUSR1 kitty || true"

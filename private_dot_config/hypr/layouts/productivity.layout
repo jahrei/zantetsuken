@@ -1,0 +1,23 @@
+# Productivity Layout
+# Workspace 4 with vertical split: editor on left, terminals on right
+
+workspace 4
+
+# Launch first terminal
+exec kitty
+sleep 0.5
+
+# Create vertical split
+hy3:makegroup v
+
+# Launch second terminal in right split
+exec kitty
+sleep 0.5
+
+# Launch code editor on the left
+hyprctl movefocus l
+exec code
+sleep 0.5
+
+# Focus to the right terminal group
+hyprctl movefocus r

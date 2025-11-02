@@ -1,0 +1,13 @@
+# Default Workspace Layout
+# Terminal on workspace 1, browser on 2
+
+workspace 1
+exec kitty
+sleep 0.5
+
+workspace 2
+exec firefox
+sleep 0.5
+
+# Return to workspace 1
+workspace 1

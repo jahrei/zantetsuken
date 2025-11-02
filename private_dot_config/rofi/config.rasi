@@ -1,0 +1,41 @@
+/**
+ * Rofi Configuration
+ * Ported from wofi sidebar configuration with purple theme
+ * Rofi 2.0+ with Wayland support
+ */
+
+configuration {
+    /* Mode Configuration */
+    modes: "drun,run";
+
+    /* Display Settings */
+    display-drun: "";
+    display-run: "";
+
+    /* Behavior */
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+
+    /* Matching */
+    matching: "fuzzy";
+    case-sensitive: false;
+
+    /* Terminal */
+    terminal: "kitty";
+
+    /* Sorting */
+    sort: true;
+    sorting-method: "fzf";
+
+    /* Sidebar position - location: 0=center, 1=NW, 2=N, 3=NE, 4=E, 5=SE, 6=S, 7=SW, 8=W */
+    /* Removed: location and anchor are set in theme file */
+
+    /* Disable history */
+    disable-history: false;
+
+    /* Click behavior */
+    click-to-exit: true;
+}
+
+/* Import theme */
+@theme "purple-sidebar"
