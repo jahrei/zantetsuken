@@ -1,0 +1,80 @@
+# ===================================
+# Modernized Wofi Configuration
+# Based on Oxide theme with smart features
+# ===================================
+
+# === Display & Layout ===
+width=480
+height=100%
+location=left
+x=0
+y=0
+layer=overlay
+columns=1
+orientation=vertical
+dynamic_lines=false
+
+# === Mode & Behavior ===
+# Combi mode: search both drun and run
+show=drun,run
+prompt=
+fork=true
+normal_window=false
+
+# === Search & Matching ===
+# Use fuzzy matching for smart search
+matching=fuzzy
+insensitive=true
+parse_search=true
+filter_rate=50
+sort_order=default
+
+# === Visual Content ===
+allow_images=true
+allow_markup=true
+image_size=32
+halign=fill
+content_halign=fill
+line_wrap=off
+hide_scroll=false
+hide_search=false
+
+# === Terminal ===
+term=kitty
+
+# === Actions & Interaction ===
+# Enable multi-action support for desktop entries
+no_actions=false
+single_click=false
+exec_search=false
+
+# === Appearance ===
+gtk_dark=true
+
+# === Cache ===
+# Use default cache location for history
+# cache_file=/home/jahrei/.cache/wofi-custom
+
+# === Keyboard Shortcuts ===
+# Navigation
+key_up=Up
+key_down=Down
+key_left=Left
+key_right=Right
+key_forward=Tab
+key_backward=Shift+ISO_Left_Tab
+key_submit=Return
+key_exit=Escape
+
+# Pagination
+key_pgup=Page_Up
+key_pgdn=Page_Down
+
+# Actions
+key_expand=Right
+key_copy=Ctrl-c
+
+# Custom exit codes for scripting
+key_custom_0=Ctrl-1
+key_custom_1=Ctrl-2
+key_custom_2=Ctrl-3

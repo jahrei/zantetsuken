@@ -1,0 +1,5 @@
+# Macchina configuration
+# This is the main config, not the theme
+
+# Specify which theme to use
+theme = "astatine"

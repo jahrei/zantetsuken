@@ -1,0 +1,338 @@
+/**
+ * Modernized Oxide-inspired Wofi Theme
+ * Based on: Oxide Color theme by Diki Ananta
+ * Adapted with: Purple palette, glassmorphic effects, modern animations
+ * For: Sidebar launcher layout
+ */
+
+/* === Global Styles === */
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* === Color Palette (Purple Oxide) === */
+/*
+ * Background:        rgba(15, 8, 25)    - Deep purple-black
+ * Surface:           rgba(33, 33, 33)   - Dark gray (from Oxide)
+ * Surface Alt:       rgba(42, 42, 42)   - Alternate rows
+ * Foreground:        #C4CAD4            - Light gray text (from Oxide)
+ * Foreground Light:  #F9F9F9            - Bright white text
+ * Purple Deep:       #3B1A5A            - Deep purple
+ * Purple Medium:     #5A189A            - Medium purple
+ * Purple Bright:     #7B2CBF            - Bright purple
+ * Purple Light:      #9D4EDD            - Light purple
+ * Purple Accent:     #BB86FC            - Accent purple
+ * Purple Pale:       #E0D0F0            - Pale purple text
+ * Red Urgent:        #C24141            - Urgent state
+ * Blue Active:       #2B83A6            - Active state
+ * Separator:         #B7B7B7            - Separator lines
+ * Scrollbar:         #555555            - Scrollbar handle
+ */
+
+/* === Animations === */
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(187, 134, 252, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(187, 134, 252, 0.4);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* === Main Window Container (Sidebar) === */
+window {
+    background-color: rgba(15, 8, 25, 0.92);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: none;
+    border-right: 2px solid rgba(187, 134, 252, 0.3);
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    box-shadow: 4px 0 30px rgba(0, 0, 0, 0.6);
+}
+
+/* === Outer Box Container === */
+#outer-box {
+    margin: 0;
+    padding: 20px;
+    border: none;
+    background-color: transparent;
+}
+
+/* === Input/Search Field === */
+#input {
+    background-color: rgba(59, 26, 90, 0.7);
+    border: 2px solid rgba(157, 78, 221, 0.4);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin: 0 0 16px 0;
+    color: #F9F9F9;
+    caret-color: #BB86FC;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: slideIn 0.3s ease-out 0.1s both;
+}
+
+#input:focus {
+    border: 2px solid rgba(187, 134, 252, 0.8);
+    background-color: rgba(59, 26, 90, 0.85);
+    box-shadow: 0 0 20px rgba(187, 134, 252, 0.3);
+}
+
+#input::placeholder {
+    color: rgba(196, 202, 212, 0.5);
+}
+
+#input::selection {
+    background-color: rgba(187, 134, 252, 0.4);
+    color: #F9F9F9;
+}
+
+/* === Scroll Container === */
+#scroll {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+/* === Inner Box (Entry Container) === */
+#inner-box {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+/* === Entry Items (Base State) === */
+#entry {
+    background-color: transparent;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin: 3px 0;
+    color: #C4CAD4;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+}
+
+/* === Entry Alternate (Striped Rows) === */
+#entry:nth-child(even) {
+    background-color: rgba(42, 42, 42, 0.2);
+}
+
+/* === Entry Hover State === */
+#entry:hover {
+    background-color: rgba(90, 24, 154, 0.5);
+    transform: translateX(6px);
+    box-shadow: 0 3px 10px rgba(187, 134, 252, 0.25);
+}
+
+/* === Entry Selected State === */
+#entry:selected {
+    background-color: rgba(123, 44, 191, 0.75);
+    color: #F9F9F9;
+    border: 1px solid rgba(187, 134, 252, 0.6);
+    transform: translateX(8px) scale(1.01);
+    box-shadow: 0 4px 16px rgba(187, 134, 252, 0.45);
+}
+
+/* === Entry Activatable State === */
+#entry.activatable {
+    background-color: rgba(43, 131, 166, 0.15);
+    border-left: 3px solid rgba(43, 131, 166, 0.6);
+}
+
+#entry.activatable:hover {
+    background-color: rgba(43, 131, 166, 0.4);
+    border-left-color: rgba(43, 131, 166, 0.9);
+}
+
+#entry.activatable:selected {
+    background-color: rgba(39, 141, 182, 0.75);
+    border-left-color: rgba(43, 131, 166, 1);
+}
+
+/* === Entry Text === */
+#text {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+#entry:selected #text {
+    color: #F9F9F9;
+    font-weight: 600;
+}
+
+#entry.activatable #text {
+    color: #C4CAD4;
+}
+
+#entry.activatable:selected #text {
+    color: #F9F9F9;
+}
+
+/* === Entry Icons === */
+#img {
+    margin-right: 12px;
+    padding: 0;
+    opacity: 0.9;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 32px;
+    min-height: 32px;
+}
+
+#entry:hover #img {
+    opacity: 1;
+    transform: scale(1.08) rotate(2deg);
+}
+
+#entry:selected #img {
+    opacity: 1;
+    transform: scale(1.12);
+    filter: drop-shadow(0 0 6px rgba(187, 134, 252, 0.6));
+}
+
+/* === Expander Box (Multi-Action Entries) === */
+#expander-box {
+    background-color: rgba(33, 33, 33, 0.5);
+    border: 1px solid rgba(157, 78, 221, 0.3);
+    border-radius: 8px;
+    padding: 8px;
+    margin: 4px 0 0 0;
+}
+
+#expander-box #entry {
+    padding: 8px 12px;
+    margin: 2px 0;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+/* === Scrollbar Styling === */
+scrollbar {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0 0 0 4px;
+}
+
+scrollbar slider {
+    background-color: rgba(85, 85, 85, 0.6);
+    border: none;
+    border-radius: 6px;
+    min-width: 6px;
+    transition: all 0.2s ease;
+}
+
+scrollbar slider:hover {
+    background-color: rgba(123, 44, 191, 0.7);
+    min-width: 8px;
+}
+
+scrollbar slider:active {
+    background-color: rgba(187, 134, 252, 0.8);
+}
+
+/* === Separators === */
+separator {
+    background-color: rgba(183, 183, 183, 0.2);
+    border: none;
+    height: 1px;
+    margin: 8px 0;
+}
+
+/* === Tooltip/Message Box === */
+tooltip {
+    background-color: rgba(33, 33, 33, 0.95);
+    border: 1px solid rgba(187, 134, 252, 0.4);
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: #C4CAD4;
+}
+
+/* === Accessibility & States === */
+#entry:focus {
+    outline: 2px solid rgba(187, 134, 252, 0.5);
+    outline-offset: 2px;
+}
+
+#entry:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* === Animation Delay Classes (Progressive Loading) === */
+#entry:nth-child(1) { animation: slideIn 0.3s ease-out 0.05s both; }
+#entry:nth-child(2) { animation: slideIn 0.3s ease-out 0.08s both; }
+#entry:nth-child(3) { animation: slideIn 0.3s ease-out 0.11s both; }
+#entry:nth-child(4) { animation: slideIn 0.3s ease-out 0.14s both; }
+#entry:nth-child(5) { animation: slideIn 0.3s ease-out 0.17s both; }
+#entry:nth-child(n+6) { animation: slideIn 0.3s ease-out 0.2s both; }
+
+/* === Performance Optimizations === */
+#entry,
+#input,
+#img {
+    will-change: transform, background-color, box-shadow;
+}
+
+/* === Responsive Adjustments === */
+@media (max-width: 500px) {
+    #outer-box {
+        padding: 15px;
+    }
+
+    #entry {
+        padding: 10px 12px;
+    }
+
+    #img {
+        margin-right: 10px;
+    }
+}

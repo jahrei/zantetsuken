@@ -1,0 +1,21 @@
+# Layout saved on Sat Nov  1 07:21:17 PM CDT 2025
+# Workspace: 3
+
+workspace 3
+
+# Window: kitty - nvim App.tsx
+# Position: (625, 286) Size: 995x941
+# Working directory: /home/jahrei
+exec kitty --working-directory "/home/jahrei"
+sleep 0.5
+hyprctl dispatch resizewindowpixel exact 995 941
+hyprctl dispatch movewindowpixel exact 625 286
+
+# Window: kitty - ~
+# Position: (1446, 832) Size: 1111x586
+# Working directory: /home/jahrei
+exec kitty --working-directory "/home/jahrei"
+sleep 0.5
+hyprctl dispatch resizewindowpixel exact 1111 586
+hyprctl dispatch movewindowpixel exact 1446 832
+

@@ -1,0 +1,228 @@
+/**
+ * Material You theme for Rofi
+ * Generated from matugen colors
+ * Based on wallpaper: kairos_roughdraft_1.png
+ */
+
+* {
+    /* Material You colors from matugen */
+    background:                  rgba ( 21, 18, 24, 100 % );        /* surface */
+    surface-container:           rgba ( 33, 31, 36, 100 % );        /* surface_container */
+    surface-container-high:      rgba ( 44, 41, 47, 100 % );        /* surface_container_high */
+    foreground:                  rgba ( 231, 224, 232, 100 % );     /* on_surface */
+    surface-variant:             rgba ( 73, 69, 78, 100 % );        /* surface_variant */
+    on-surface-variant:          rgba ( 203, 196, 207, 100 % );     /* on_surface_variant */
+
+    primary:                     rgba ( 212, 187, 252, 100 % );     /* primary */
+    primary-container:           rgba ( 80, 60, 116, 100 % );       /* primary_container */
+    on-primary:                  rgba ( 57, 37, 92, 100 % );        /* on_primary */
+
+    error:                       rgba ( 255, 180, 171, 100 % );     /* error */
+    error-container:             rgba ( 147, 0, 10, 100 % );        /* error_container */
+
+    outline:                     rgba ( 148, 143, 153, 100 % );     /* outline */
+    outline-variant:             rgba ( 73, 69, 78, 100 % );        /* outline_variant */
+
+    /* Theme assignments */
+    selected-normal-foreground:  var(foreground);
+    normal-foreground:           var(on-surface-variant);
+    alternate-normal-background: var(surface-container);
+    selected-urgent-foreground:  var(foreground);
+    urgent-foreground:           var(foreground);
+    alternate-urgent-background: var(error-container);
+    active-foreground:           var(foreground);
+    selected-active-foreground:  var(foreground);
+    alternate-active-background: var(primary-container);
+    alternate-normal-foreground: var(on-surface-variant);
+    normal-background:           var(background);
+    selected-normal-background:  var(primary-container);
+    separatorcolor:              var(outline);
+    spacing:                     2;
+    border-color:                var(primary);
+    urgent-background:           var(error-container);
+    alternate-active-foreground: var(active-foreground);
+    alternate-urgent-foreground: var(urgent-foreground);
+    background-color:            transparent;
+    selected-urgent-background:  var(error);
+    active-background:           var(primary-container);
+    selected-active-background:  var(primary);
+}
+
+window {
+    background-color: var(background);
+    border:           0;
+    padding:          8;
+    width:            480px;
+    height:           100%;
+    location:         west;
+    anchor:           west;
+    x-offset:         0;
+    y-offset:         0;
+}
+
+mainbox {
+    border:  0;
+    padding: 12;
+}
+
+message {
+    border:       2px dash 0px 0px;
+    border-color: var(separatorcolor);
+    padding:      1px;
+}
+
+textbox {
+    text-color: var(foreground);
+}
+
+inputbar {
+    spacing:    0px;
+    text-color: var(normal-foreground);
+    padding:    1px;
+    children:   [ "prompt","textbox-prompt-colon","entry","overlay","case-indicator" ];
+}
+
+case-indicator {
+    spacing:    0;
+    text-color: var(normal-foreground);
+}
+
+entry {
+    placeholder:       "";
+    cursor:            text;
+    spacing:           0;
+    text-color:        var(normal-foreground);
+    placeholder-color: rgba ( 128, 128, 128, 100 % );
+}
+
+prompt {
+    spacing:    0;
+    text-color: var(normal-foreground);
+}
+
+textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3000em 0.0000em 0.0000em;
+    text-color: inherit;
+}
+
+num-filtered-rows {
+    expand:     false;
+    text-color: rgba ( 128, 128, 128, 100 % );
+}
+
+num-rows {
+    expand:     false;
+    text-color: rgba ( 128, 128, 128, 100 % );
+}
+
+textbox-num-sep {
+    expand:     false;
+    str:        "/";
+    text-color: rgba ( 128, 128, 128, 100 % );
+}
+
+case-indicator {
+    spacing:    0;
+    text-color: var(normal-foreground);
+}
+
+listview {
+    fixed-height: 0;
+    border:       0;
+    border-color: var(separatorcolor);
+    spacing:      2px;
+    scrollbar:    true;
+    padding:      2px 0px 0px;
+}
+
+scrollbar {
+    width:        4px;
+    border:       0;
+    handle-color: rgba ( 85, 85, 85, 100 % );
+    handle-width: 8px;
+    padding:      0;
+}
+
+element {
+    cursor:  pointer;
+    border:  0;
+    spacing: 4px;
+    padding: 1px;
+}
+
+element normal.normal {
+    background-color: var(normal-background);
+    text-color:       var(normal-foreground);
+}
+
+element normal.urgent {
+    background-color: var(urgent-background);
+    text-color:       var(urgent-foreground);
+}
+
+element normal.active {
+    background-color: var(active-background);
+    text-color:       var(active-foreground);
+}
+
+element selected.normal {
+    background-color: var(selected-normal-background);
+    text-color:       var(selected-normal-foreground);
+}
+
+element selected.urgent {
+    background-color: var(selected-urgent-background);
+    text-color:       var(selected-urgent-foreground);
+}
+
+element selected.active {
+    background-color: var(selected-active-background);
+    text-color:       var(selected-active-foreground);
+}
+
+element alternate.normal {
+    background-color: var(alternate-normal-background);
+    text-color:       var(alternate-normal-foreground);
+}
+
+element alternate.urgent {
+    background-color: var(alternate-urgent-background);
+    text-color:       var(alternate-urgent-foreground);
+}
+
+element alternate.active {
+    background-color: var(alternate-active-background);
+    text-color:       var(alternate-active-foreground);
+}
+
+element-text {
+    background-color: transparent;
+    highlight:        inherit;
+    cursor:           inherit;
+    text-color:       inherit;
+}
+
+element-icon {
+    background-color: transparent;
+    size:             21px;
+    cursor:           inherit;
+    text-color:       inherit;
+}
+
+sidebar {
+    border:       2px dash 0px 0px;
+    border-color: var(separatorcolor);
+}
+
+button {
+    cursor:     pointer;
+    spacing:    0;
+    text-color: var(normal-foreground);
+}
+
+button selected {
+    background-color: var(selected-normal-background);
+    text-color:       var(selected-normal-foreground);
+}
