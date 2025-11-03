@@ -1,0 +1,17 @@
+# Chezmoi source files (kept for chezmoi functionality)
+.chezmoi/
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak

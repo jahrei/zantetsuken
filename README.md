@@ -92,24 +92,51 @@ cd galaxias-ii
 # You'll need to rename files accordingly
 ```
 
-## Structure
+## Repository Structure
+
+This repository uses a dual structure for maximum compatibility:
+
+### For Users (Open Source Structure)
 
 ```
-~/.config/
-├── hypr/              # Hyprland configuration
-│   ├── hyprland.conf  # Main config
-│   ├── colors.conf    # Color scheme
-│   ├── layouts/       # Custom window layouts
-│   └── scripts/       # Automation scripts
-├── kitty/             # Kitty terminal
-├── waybar/            # Waybar status bar
-├── hyprpanel/         # Hyprpanel alternative
-├── rofi/              # Rofi launcher
-├── wofi/              # Wofi launcher
-├── matugen/           # Color generation
-├── macchina/          # System info
-├── btop/              # System monitor
-└── fontconfig/        # Font config
+galaxias-ii/
+├── config/            # Application configurations
+│   ├── hypr/         # Hyprland window manager
+│   │   ├── hyprland.conf
+│   │   ├── colors.conf
+│   │   ├── layouts/
+│   │   └── scripts/
+│   ├── fish/         # Fish shell
+│   ├── kitty/        # Kitty terminal
+│   ├── waybar/       # Status bar
+│   ├── hyprpanel/    # Alternative panel
+│   ├── rofi/         # App launcher
+│   ├── wofi/         # Alternative launcher
+│   ├── matugen/      # Color generation
+│   ├── macchina/     # System info
+│   ├── btop/         # System monitor
+│   └── fontconfig/   # Font config
+├── home/             # Home directory dotfiles
+│   ├── .bashrc
+│   ├── .bash_profile
+│   ├── .bash_logout
+│   └── .gitconfig
+└── README.md
+```
+
+### For Chezmoi Users
+
+The `.chezmoi/` directory contains the original chezmoi-formatted files for direct use with chezmoi. This directory is gitignored to keep the public-facing structure clean.
+
+**To use with chezmoi:**
+```bash
+# Clone directly to chezmoi source
+chezmoi init https://github.com/jahrei/galaxias-ii.git
+
+# Or manually
+git clone https://github.com/jahrei/galaxias-ii.git
+cd galaxias-ii/.chezmoi
+chezmoi init
 ```
 
 ## Customization
