@@ -1,205 +1,71 @@
 # galaxias-ii
-electric boogaloo
 
-A comprehensive Hyprland-based rice configuration managed with [chezmoi](https://www.chezmoi.io/).
+Hyprland rice for my main desktop (galaxias-ii).
 
 ## Overview
 
-This repository contains my personal Linux rice (desktop customization) featuring a modern Wayland-based setup with Hyprland as the window manager. The configuration emphasizes aesthetics, functionality, and workflow efficiency.
+A modern Wayland-based desktop setup featuring:
+- **Hyprland** with hy3 plugin for i3-like tiling
+- **Material You** theming via Matugen
+- **Multi-monitor** support (2x 1440p + 1x 1080p)
 
-## Screenshots
-
-*Coming soon*
-
-## Components
-
-### Core Desktop Environment
-
-- **Window Manager**: [Hyprland](https://hyprland.org/) - Dynamic tiling Wayland compositor
-  - Custom layouts (default, dev, productivity, chinese)
-  - Custom color scheme configuration
-  - Hyprpaper for wallpaper management
-  - Automation scripts for layout management and screenshots
-
-- **Status Bars**:
-  - [Waybar](https://github.com/Alexays/Waybar) - Highly customizable Wayland bar
-  - [Hyprpanel](https://github.com/Jas-SinghFSU/HyprPanel) - Alternative Hyprland-specific panel
-
-- **Terminal**: [Kitty](https://sw.kovidkat.net/kitty/) - GPU-accelerated terminal emulator
-  - Custom color scheme
-  - Optimized configuration
-
-- **Application Launchers**:
-  - [Rofi](https://github.com/davatorium/rofi) - Window switcher and app launcher (with purple-sidebar theme)
-  - [Wofi](https://hg.sr.ht/~scoopta/wofi) - Native Wayland launcher alternative
-
-### Theming & Customization
-
-- **Matugen**: Material You color generation from wallpapers
-  - Templates for Hyprland, Kitty, Waybar, and Hyprpanel
-  - Automated theming workflow
-
-- **Fontconfig**: Custom font configuration for consistent typography
-
-### System Utilities
-
-- **Btop**: Beautiful system resource monitor
-- **Macchina**: Fast system information tool with custom ASCII art themes
-- **htop**: Interactive process viewer
-
-### Shell & Development
-
-- **Bash**: Custom shell configuration
-- **Git**: Version control configuration
-
-## Installation
-
-### Prerequisites
-
-Ensure you have the following installed:
-- [chezmoi](https://www.chezmoi.io/)
-- [Hyprland](https://hyprland.org/)
-- [Kitty](https://sw.kovidkat.net/kitty/)
-- [Waybar](https://github.com/Alexays/Waybar)
-- [Rofi](https://github.com/davatorium/rofi)
-- [Wofi](https://hg.sr.ht/~scoopta/wofi)
-- [Matugen](https://github.com/InioX/matugen)
-- [Macchina](https://github.com/Macchina-CLI/macchina)
-- [Btop](https://github.com/aristocratos/btop)
-
-### Using Chezmoi (Recommended)
-
-```bash
-# Initialize chezmoi with this repository
-chezmoi init https://github.com/jahrei/galaxias-ii.git
-
-# Preview changes
-chezmoi diff
-
-# Apply the configuration
-chezmoi apply
-```
-
-### Manual Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/jahrei/galaxias-ii.git
-cd galaxias-ii
-
-# Copy dotfiles manually (adjust paths as needed)
-# Note: chezmoi uses special prefixes like 'dot_' and 'private_dot_config'
-# You'll need to rename files accordingly
-```
-
-## Repository Structure
-
-This repository uses a dual structure for maximum compatibility:
-
-### For Users (Open Source Structure)
+## Structure
 
 ```
 galaxias-ii/
-├── config/            # Application configurations
-│   ├── hypr/         # Hyprland window manager
-│   │   ├── hyprland.conf
-│   │   ├── colors.conf
-│   │   ├── layouts/
-│   │   └── scripts/
-│   ├── fish/         # Fish shell
-│   ├── kitty/        # Kitty terminal
-│   ├── waybar/       # Status bar
-│   ├── hyprpanel/    # Alternative panel
-│   ├── rofi/         # App launcher
-│   ├── wofi/         # Alternative launcher
-│   ├── matugen/      # Color generation
-│   ├── macchina/     # System info
-│   ├── btop/         # System monitor
-│   └── fontconfig/   # Font config
-├── home/             # Home directory dotfiles
-│   ├── .bashrc
-│   ├── .bash_profile
-│   ├── .bash_logout
-│   └── .gitconfig
-└── README.md
+├── dots/              # ~/.config symlinks
+│   ├── hypr/          # Hyprland + scripts + layouts
+│   ├── waybar/        # Status bar
+│   ├── kitty/         # Terminal
+│   ├── rofi/          # App launcher
+│   ├── wofi/          # Alt launcher
+│   ├── matugen/       # Theme generator
+│   ├── hyprpanel/     # Panel
+│   ├── btop/          # System monitor
+│   ├── fontconfig/    # Fonts
+│   └── macchina/      # System info
+├── home/              # ~/ dotfiles (.bashrc, etc)
+├── scripts/           # Install/setup scripts
+└── docs/              # Configuration documentation
 ```
 
-### For Chezmoi Users
-
-The `.chezmoi/` directory contains the original chezmoi-formatted files for direct use with chezmoi. This directory is gitignored to keep the public-facing structure clean.
-
-**To use with chezmoi:**
-```bash
-# Clone directly to chezmoi source
-chezmoi init https://github.com/jahrei/galaxias-ii.git
-
-# Or manually
-git clone https://github.com/jahrei/galaxias-ii.git
-cd galaxias-ii/.chezmoi
-chezmoi init
-```
-
-## Customization
-
-### Changing Colors
-
-This rice uses Matugen for color generation. To generate a new color scheme from a wallpaper:
+## Installation
 
 ```bash
-matugen image /path/to/your/wallpaper.jpg
+git clone https://github.com/jahrei/galaxias-ii.git ~/Documents/Projects/galaxias-ii
+cd ~/Documents/Projects/galaxias-ii
+./scripts/install.sh
 ```
 
-The generated colors will automatically update Hyprland, Kitty, Waybar, and Hyprpanel configurations.
+This symlinks `dots/*` to `~/.config/` and `home/.*` to `~/`.
 
-### Custom Layouts
+## Documentation
 
-Hyprland layouts are stored in `~/.config/hypr/layouts/`. To save your current layout:
+See [docs/](docs/) for detailed configuration documentation:
+- [Hyprland](docs/01-hyprland.md) - WM config, keybindings, layouts
+- [Waybar](docs/02-waybar.md) - Status bar
+- [Terminal/Shell](docs/03-terminal-shell.md) - Fish, Kitty
+- [Theming](docs/04-theming.md) - Material You, Matugen
+- [Launchers](docs/05-launchers-notifications.md) - Rofi, notifications
+- [Additional](docs/06-additional-components.md) - Audio, RGB, etc.
 
+## Quick Reference
+
+| Key | Action |
+|-----|--------|
+| Super + Return | Terminal |
+| Super + D | App launcher |
+| Super + Q | Close window |
+| Super + 1-9 | Workspaces |
+| Super + H/J/K/L | Navigate |
+
+## Theming
+
+Apply a new theme from any wallpaper:
 ```bash
-~/.config/hypr/scripts/load-layout.sh
+matugen image /path/to/wallpaper.png
 ```
 
-To load a layout:
+## Related
 
-```bash
-~/.config/hypr/scripts/save-layout.sh layout-name
-```
-
-### Modifying Configurations
-
-When using chezmoi, always edit files through chezmoi to ensure changes are tracked:
-
-```bash
-# Edit a config file
-chezmoi edit ~/.config/hypr/hyprland.conf
-
-# Apply changes
-chezmoi apply
-```
-
-## Scripts
-
-Located in `~/.config/hypr/scripts/`:
-
-- `load-layout.sh` - Load saved window layouts
-- `save-layout.sh` - Save current window layout
-- `screenshot.sh` - Screenshot utility
-- `script-menu.sh` - Interactive script menu
-
-## Contributing
-
-Feel free to fork this repository and customize it for your own use. If you have improvements or suggestions, pull requests are welcome!
-
-## License
-
-This configuration is provided as-is for personal use. Feel free to use, modify, and share.
-
-## Acknowledgments
-
-- [Hyprland](https://hyprland.org/) community
-- [r/unixporn](https://reddit.com/r/unixporn) for inspiration
-- All the amazing open-source tool developers
-
----
-
-**Note**: This is a personal configuration. Some settings may need adjustment based on your system, hardware, and preferences.
+- [universal-rice](https://github.com/jahrei/universal-rice) - Shared rice documentation
