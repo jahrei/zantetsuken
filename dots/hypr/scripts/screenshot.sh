@@ -9,15 +9,16 @@ mkdir -p "$SCREENSHOT_DIR"
 case "$MODE" in
     clipboard)
         # Screenshot to clipboard
-        grim -g "$(slurp)" - | wl-copy
+        grim -g "$(slurp -d)" - | wl-copy
         notify-send "Screenshot" "Copied to clipboard" -t 2000
         ;;
 
     save)
-        # Screenshot and save to file
+        # Screenshot, save to file, and copy to clipboard
         FILENAME="$SCREENSHOT_DIR/screenshot_$(date +%Y%m%d_%H%M%S).png"
-        grim -g "$(slurp)" "$FILENAME"
-        notify-send "Screenshot" "Saved to $FILENAME" -t 3000
+        grim -g "$(slurp -d)" "$FILENAME"
+        wl-copy < "$FILENAME"
+        notify-send "Screenshot" "Saved and copied to clipboard" -t 3000
         ;;
 
     ocr)
@@ -28,7 +29,7 @@ case "$MODE" in
         fi
 
         TEMP_IMG=$(mktemp /tmp/screenshot-XXXXXX.png)
-        grim -g "$(slurp)" "$TEMP_IMG"
+        grim -g "$(slurp -d)" "$TEMP_IMG"
 
         # Extract text using tesseract
         TEXT=$(tesseract "$TEMP_IMG" - 2>/dev/null)

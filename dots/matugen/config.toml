@@ -1,33 +1,34 @@
 [config]
-# Enable caching for faster theme generation
-caching = true
+version_check = false
 
-# Wallpaper settings
-[config.wallpaper]
-# Automatically set wallpaper when running matugen
-set = true
-# Use swww to set wallpaper
-command = "swww"
-# Arguments for swww
-arguments = ["img", "--transition-type", "center"]
+[templates.m3colors]
+input_path = '~/.config/matugen/templates/colors.json'
+output_path = '~/.local/state/quickshell/user/generated/colors.json'
 
-# Waybar CSS template
-[templates.waybar]
-input_path = "~/.config/matugen/templates/waybar.css"
-output_path = "~/.config/waybar/style.css"
-# Reload waybar after theme change
-post_hook = "killall -SIGUSR2 waybar || true"
-
-# Hyprland colors template
 [templates.hyprland]
-input_path = "~/.config/matugen/templates/hyprland-colors.conf"
-output_path = "~/.config/hypr/colors.conf"
-# Reload Hyprland config after theme change
-post_hook = "hyprctl reload"
+input_path = '~/.config/matugen/templates/hyprland/colors.conf'
+output_path = '~/.config/hypr/hyprland/colors.conf'
 
-# Kitty terminal colors template
-[templates.kitty]
-input_path = "~/.config/matugen/templates/kitty.conf"
-output_path = "~/.config/kitty/colors.conf"
-# Reload kitty after theme change
-post_hook = "killall -SIGUSR1 kitty || true"
+[templates.hyprlock]
+input_path = '~/.config/matugen/templates/hyprland/hyprlock-colors.conf'
+output_path = '~/.config/hypr/hyprlock/colors.conf'
+
+[templates.fuzzel]
+input_path = '~/.config/matugen/templates/fuzzel/fuzzel_theme.ini'
+output_path = '~/.config/fuzzel/fuzzel_theme.ini'
+
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk-3.0/gtk.css'
+output_path = '~/.config/gtk-3.0/gtk.css'
+
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk-4.0/gtk.css'
+output_path = '~/.config/gtk-4.0/gtk.css'
+
+[templates.kde_colors]
+input_path = '~/.config/matugen/templates/kde/color.txt'
+output_path = '~/.local/state/quickshell/user/generated/color.txt'
+
+[templates.wallpaper]
+input_path = '~/.config/matugen/templates/wallpaper.txt'
+output_path = '~/.local/state/quickshell/user/generated/wallpaper/path.txt'
